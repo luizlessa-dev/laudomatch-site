@@ -4,27 +4,76 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LaudoMatch</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-body{font-family:Arial, sans-serif;margin:0;background:#fff;color:#111;text-align:center}
-.hero{padding:80px 20px}
-.section{padding:60px 20px;background:#f5f5f5}
-.btn{padding:15px 25px;background:black;color:white;text-decoration:none;border-radius:8px}
+body{
+font-family:Inter, sans-serif;
+margin:0;
+color:#111;
+background:white;
+}
+.container{max-width:1100px;margin:auto;padding:80px 20px}
+.hero{text-align:center;padding:120px 20px}
+.hero h1{font-size:48px;margin-bottom:20px}
+.hero p{font-size:20px;color:#555;margin-bottom:30px}
+.btn{background:#000;color:#fff;padding:16px 28px;border-radius:10px;text-decoration:none;font-weight:600}
+.section-gray{background:#f6f6f6}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
+.card{background:white;padding:30px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.05)}
+h2{font-size:36px;margin-bottom:20px;text-align:center}
 </style>
 </head>
 
 <body>
 
-<div class="hero">
+<section class="hero">
 <h1>A vistoria de saída não precisa começar do zero</h1>
 <p>Envie o laudo de entrada e receba automaticamente o plano completo da vistoria de saída.</p>
-<br>
-<a class="btn">Quero testar</a>
-</div>
+<a class="btn">Quero entrar na lista de acesso</a>
+</section>
 
-<div class="section">
-<h2>Chegue na vistoria sabendo exatamente o que verificar</h2>
-<p>Economize horas, reduza conflitos e aumente a segurança jurídica.</p>
+<section class="container section-gray">
+<h2>O maior conflito da locação acontece na entrega das chaves</h2>
+<p style="text-align:center;max-width:700px;margin:auto">
+Discussões sobre caução, divergências sobre danos e retrabalho da equipe acontecem todos os meses nas imobiliárias.
+Tudo porque a vistoria de saída ainda começa do zero.
+</p>
+</section>
+
+<section class="container">
+<h2>Transforme o laudo de entrada no roteiro da vistoria de saída</h2>
+<div class="grid">
+<div class="card">Checklist completo da saída</div>
+<div class="card">Comparação ambiente a ambiente</div>
+<div class="card">Pontos críticos de atenção</div>
 </div>
+</section>
+
+<section class="container section-gray">
+<h2>Menos tempo perdido. Mais segurança jurídica.</h2>
+<div class="grid">
+<div class="card">Reduza retrabalho</div>
+<div class="card">Diminua conflitos</div>
+<div class="card">Padronize processos</div>
+<div class="card">Aumente a segurança jurídica</div>
+</div>
+</section>
+
+<section class="container">
+<h2>Como funciona</h2>
+<div class="grid">
+<div class="card">1️⃣ Envie o laudo de entrada</div>
+<div class="card">2️⃣ A IA analisa o documento</div>
+<div class="card">3️⃣ Receba o checklist completo</div>
+</div>
+</section>
+
+<section class="hero">
+<h2>Seja uma das primeiras imobiliárias a testar</h2>
+<a class="btn">Quero entrar na lista</a>
+</section>
 
 </body>
 </html>
