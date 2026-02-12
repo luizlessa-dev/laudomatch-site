@@ -2,77 +2,118 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LaudoMatch</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
 body{
 font-family:Inter, sans-serif;
 margin:0;
-color:#111;
-background:white;
+background:#0b0b0b;
+color:white;
+text-align:center;
 }
-.container{max-width:1100px;margin:auto;padding:80px 20px}
-.hero{text-align:center;padding:120px 20px}
-.hero h1{font-size:48px;margin-bottom:20px}
-.hero p{font-size:20px;color:#555;margin-bottom:30px}
-.btn{background:#000;color:#fff;padding:16px 28px;border-radius:10px;text-decoration:none;font-weight:600}
-.section-gray{background:#f6f6f6}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
-.card{background:white;padding:30px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,0.05)}
-h2{font-size:36px;margin-bottom:20px;text-align:center}
+
+.hero{
+padding:120px 20px;
+background: radial-gradient(circle at top, #1f1f1f, #000);
+}
+
+h1{
+font-size:56px;
+max-width:900px;
+margin:auto;
+}
+
+.subtitle{
+font-size:22px;
+opacity:.7;
+margin:20px auto 40px;
+max-width:700px;
+}
+
+.cta{
+background:#6c5cff;
+padding:18px 34px;
+border-radius:12px;
+display:inline-block;
+font-weight:600;
+text-decoration:none;
+color:white;
+font-size:20px;
+box-shadow:0 10px 30px rgba(108,92,255,.4);
+}
+
+.section{
+padding:100px 20px;
+background:#111;
+}
+
+.cards{
+display:flex;
+gap:30px;
+justify-content:center;
+flex-wrap:wrap;
+margin-top:50px;
+}
+
+.card{
+background:#1c1c1c;
+padding:30px;
+border-radius:16px;
+width:260px;
+}
+
+.card h3{margin-top:10px}
+
+.final{
+padding:120px 20px;
+background:linear-gradient(180deg,#111,#000);
+}
 </style>
 </head>
 
 <body>
 
 <section class="hero">
-<h1>A vistoria de saída não precisa começar do zero</h1>
-<p>Envie o laudo de entrada e receba automaticamente o plano completo da vistoria de saída.</p>
-<a class="btn">Quero entrar na lista de acesso</a>
+<h1>A vistoria de saída finalmente virou previsível</h1>
+<p class="subtitle">Envie o laudo de entrada e receba automaticamente o checklist completo da vistoria de saída.</p>
+<a class="cta">Entrar na lista de espera</a>
 </section>
 
-<section class="container section-gray">
-<h2>O maior conflito da locação acontece na entrega das chaves</h2>
-<p style="text-align:center;max-width:700px;margin:auto">
-Discussões sobre caução, divergências sobre danos e retrabalho da equipe acontecem todos os meses nas imobiliárias.
-Tudo porque a vistoria de saída ainda começa do zero.
-</p>
-</section>
-
-<section class="container">
-<h2>Transforme o laudo de entrada no roteiro da vistoria de saída</h2>
-<div class="grid">
-<div class="card">Checklist completo da saída</div>
-<div class="card">Comparação ambiente a ambiente</div>
-<div class="card">Pontos críticos de atenção</div>
+<section class="section">
+<h2>Por que imobiliárias precisam disso?</h2>
+<div class="cards">
+<div class="card">
+<h3>⏱ Economize horas</h3>
+<p>Pare de comparar laudos manualmente.</p>
+</div>
+<div class="card">
+<h3>⚖️ Reduza conflitos</h3>
+<p>Mais clareza na devolução do imóvel.</p>
+</div>
+<div class="card">
+<h3>📑 Padronize processos</h3>
+<p>Todas as vistorias seguindo o mesmo padrão.</p>
+</div>
 </div>
 </section>
 
-<section class="container section-gray">
-<h2>Menos tempo perdido. Mais segurança jurídica.</h2>
-<div class="grid">
-<div class="card">Reduza retrabalho</div>
-<div class="card">Diminua conflitos</div>
-<div class="card">Padronize processos</div>
-<div class="card">Aumente a segurança jurídica</div>
-</div>
-</section>
-
-<section class="container">
+<section class="section">
 <h2>Como funciona</h2>
-<div class="grid">
-<div class="card">1️⃣ Envie o laudo de entrada</div>
-<div class="card">2️⃣ A IA analisa o documento</div>
-<div class="card">3️⃣ Receba o checklist completo</div>
+<div class="cards">
+<div class="card"><h3>1️⃣ Envie o laudo</h3></div>
+<div class="card"><h3>2️⃣ IA analisa</h3></div>
+<div class="card"><h3>3️⃣ Receba checklist</h3></div>
 </div>
 </section>
 
-<section class="hero">
+<section class="final">
 <h2>Seja uma das primeiras imobiliárias a testar</h2>
-<a class="btn">Quero entrar na lista</a>
+<br>
+<a class="cta">Quero acesso antecipado</a>
 </section>
 
 </body>
