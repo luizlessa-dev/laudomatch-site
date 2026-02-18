@@ -2,224 +2,176 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>LaudoMatch — Vistoria de saída com IA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LaudoMatch — A vistoria de saída finalmente virou previsível</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRR9ZFN2KY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DRR9ZFN2KY');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
+    * {margin:0;padding:0;box-sizing:border-box}
     body{
-      margin:0;
-      font-family:Inter, Arial;
-      background:#000;
-      color:#fff;
+      font-family:Inter, sans-serif;
+      background:#0b0b0f;
+      color:white;
       line-height:1.6;
     }
 
     .container{
-      max-width:1000px;
+      max-width:1100px;
       margin:auto;
-      padding:100px 20px;
+      padding:60px 20px;
       text-align:center;
     }
 
-    .btn{
-      background:#7c3aed;
-      padding:18px 32px;
-      border-radius:12px;
-      text-decoration:none;
-      color:#fff;
-      font-weight:600;
-      display:inline-block;
-      margin-top:30px;
+    .hero{
+      background: radial-gradient(circle at center, #2b2bff20, #000);
+      padding:120px 20px;
     }
 
-    .muted{ color:#aaa; }
-    .section-dark{ background:#111; }
+    h1{
+      font-size:48px;
+      font-weight:700;
+      margin-bottom:20px;
+    }
 
-    .grid{
-      display:flex;
-      flex-wrap:wrap;
-      gap:40px;
-      justify-content:center;
-      margin-top:60px;
+    h2{
+      font-size:34px;
+      margin-bottom:40px;
+    }
+
+    p{
+      font-size:20px;
+      opacity:.8;
+      margin-bottom:40px;
+    }
+
+    .cta{
+      display:inline-block;
+      background:linear-gradient(90deg,#6C63FF,#7f5cff);
+      padding:18px 36px;
+      border-radius:10px;
+      text-decoration:none;
+      color:white;
+      font-weight:600;
+      font-size:18px;
+      transition:.3s;
+    }
+
+    .cta:hover{
+      transform:scale(1.05);
+      box-shadow:0 0 20px #6C63FF;
+    }
+
+    .section{
+      padding:90px 20px;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+      margin-top:40px;
     }
 
     .card{
-      max-width:260px;
+      background:#15151d;
+      padding:30px;
+      border-radius:14px;
     }
 
-    h1{ font-size:48px; line-height:1.2; }
-    h2{ font-size:36px; }
-    h3{ font-size:22px; }
-
-    footer{
-      text-align:center;
-      padding:60px 20px;
-      color:#666;
+    .footer{
+      opacity:.6;
       font-size:14px;
+      padding:30px;
+      text-align:center;
     }
   </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<section class="container">
-  <h1>
-    Transforme o laudo de entrada no plano completo da vistoria de saída
-  </h1>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>A vistoria de saída finalmente virou previsível</h1>
+      <p>Envie o laudo de entrada e receba automaticamente o checklist completo da vistoria de saída.</p>
 
-  <p class="muted" style="font-size:22px;margin-top:30px;">
-    A IA do LaudoMatch analisa o laudo de entrada e gera automaticamente  
-    o checklist técnico da vistoria de saída.
-  </p>
-
-  <a href="https://forms.gle/" target="_blank" class="btn">
-    Entrar na lista de espera
-  </a>
-
-  <p style="margin-top:20px;color:#666;">
-    Primeiras vagas para imobiliárias piloto
-  </p>
-</section>
-
-
-<!-- PROBLEMA -->
-<section class="container section-dark">
-  <h2>A vistoria de saída é onde surgem os maiores conflitos da locação</h2>
-
-  <div class="grid">
-    <div class="card">
-      <h3>Retrabalho manual</h3>
-      <p class="muted">
-        Cada vistoria exige reler o laudo de entrada e montar um checklist manual.
-      </p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd4pKwGRXz_JwaDve3gfmmzApQw8J9jZctdi__nN_NgJ6UGZw/viewform"
+         class="cta"
+         target="_blank"
+         onclick="gtag('event','click_cta',{event_category:'engagement',event_label:'Hero'});">
+         Quero acesso antecipado
+      </a>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>Conflitos com inquilinos</h3>
-      <p class="muted">
-        Diferenças entre laudos geram discussões sobre danos e caução.
-      </p>
-    </div>
+  <!-- PROBLEMA -->
+  <section class="section">
+    <div class="container">
+      <h2>O maior conflito da locação acontece na entrega das chaves</h2>
+      <p>Discussões sobre danos, retrabalho e insegurança jurídica fazem parte da rotina das imobiliárias.</p>
 
-    <div class="card">
-      <h3>Risco jurídico</h3>
-      <p class="muted">
-        Sem documentação comparativa clara, cobranças podem ser contestadas.
-      </p>
+      <div class="cards">
+        <div class="card">Retrabalho com laudos manuais</div>
+        <div class="card">Discussões com inquilinos</div>
+        <div class="card">Processos sem padrão</div>
+        <div class="card">Risco jurídico na caução</div>
+      </div>
     </div>
+  </section>
+
+  <!-- BENEFÍCIOS -->
+  <section class="section">
+    <div class="container">
+      <h2>Por que imobiliárias precisam disso?</h2>
+
+      <div class="cards">
+        <div class="card">Economize horas comparando laudos automaticamente</div>
+        <div class="card">Reduza conflitos com documentação padronizada</div>
+        <div class="card">Padronize o processo de vistoria</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="section">
+    <div class="container">
+      <h2>Como funciona</h2>
+
+      <div class="cards">
+        <div class="card">1️⃣ Envie o laudo de entrada</div>
+        <div class="card">2️⃣ A IA analisa o documento</div>
+        <div class="card">3️⃣ Receba o checklist completo</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="section">
+    <div class="container">
+      <h2>Seja uma das primeiras imobiliárias a testar</h2>
+
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd4pKwGRXz_JwaDve3gfmmzApQw8J9jZctdi__nN_NgJ6UGZw/viewform"
+         class="cta"
+         target="_blank"
+         onclick="gtag('event','click_cta_footer',{event_category:'engagement',event_label:'Footer'});">
+         Quero acesso antecipado
+      </a>
+    </div>
+  </section>
+
+  <div class="footer">
+    © 2026 LaudoMatch
   </div>
-
-  <p style="margin-top:50px;color:#a78bfa;font-size:22px;">
-    A vistoria de saída não deveria começar do zero.
-  </p>
-</section>
-
-
-<!-- PARA QUEM É -->
-<section class="container">
-  <h2>Para quem o LaudoMatch foi criado</h2>
-
-  <div class="grid">
-    <div class="card">
-      <h3>Imobiliárias</h3>
-      <p class="muted">
-        Que querem reduzir conflitos e escalar a carteira de locação.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Equipes de vistoria</h3>
-      <p class="muted">
-        Que gastam horas lendo laudos e montando checklists manualmente.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Gestores de locação</h3>
-      <p class="muted">
-        Que precisam de padronização e segurança jurídica.
-      </p>
-    </div>
-  </div>
-</section>
-
-
-<!-- COMO FUNCIONA -->
-<section class="container section-dark">
-  <h2>Como funciona</h2>
-
-  <div class="grid">
-    <div class="card">
-      <h3>1. Envie o laudo</h3>
-      <p class="muted">Upload do laudo de entrada.</p>
-    </div>
-
-    <div class="card">
-      <h3>2. IA analisa</h3>
-      <p class="muted">Identificação automática de ambientes e materiais.</p>
-    </div>
-
-    <div class="card">
-      <h3>3. Checklist pronto</h3>
-      <p class="muted">Receba o plano completo da vistoria de saída.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- O QUE RECEBE -->
-<section class="container">
-  <h2>Ao entrar na lista você receberá</h2>
-
-  <div class="grid">
-    <div class="card">
-      <h3>Acesso antecipado</h3>
-      <p class="muted">Teste antes do lançamento público.</p>
-    </div>
-
-    <div class="card">
-      <h3>Condições especiais</h3>
-      <p class="muted">Plano fundador com preço reduzido.</p>
-    </div>
-
-    <div class="card">
-      <h3>Influência no produto</h3>
-      <p class="muted">Ajude a moldar o LaudoMatch.</p>
-    </div>
-  </div>
-</section>
-
-
-<!-- FAQ -->
-<section class="container section-dark">
-  <h2>Perguntas frequentes</h2>
-
-  <p><b>O produto já está pronto?</b><br>
-  Está em fase piloto com imobiliárias selecionadas.</p>
-
-  <p><b>Vai integrar com sistemas imobiliários?</b><br>
-  Sim. Integrações estão no roadmap.</p>
-
-  <p><b>Preciso mudar meu processo?</b><br>
-  Não. O objetivo é simplificar o processo atual.</p>
-</section>
-
-
-<!-- CTA FINAL -->
-<section class="container">
-  <h2>Seja uma das primeiras imobiliárias a testar</h2>
-
-  <a href="https://forms.gle/" target="_blank" class="btn">
-    Quero acesso antecipado
-  </a>
-</section>
-
-<footer>
-  © LaudoMatch — Em construção
-</footer>
 
 </body>
 </html>
