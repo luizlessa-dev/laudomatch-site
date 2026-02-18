@@ -3,11 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LaudoMatch — Automação de Vistorias Imobiliárias</title>
 
-<title>LaudoMatch — A vistoria não precisa começar do zero</title>
-<meta name="description" content="Envie o laudo de entrada e receba automaticamente o plano da vistoria de saída.">
-
-<!-- Google Analytics -->
+<!-- ================= GOOGLE ANALYTICS ================= -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRR9ZFN2KY"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -16,127 +14,79 @@ gtag('js', new Date());
 gtag('config', 'G-DRR9ZFN2KY');
 </script>
 
+<!-- ================= META PIXEL ================= -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1616334372884673');
+fbq('track', 'PageView');
+</script>
+
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1616334372884673&ev=PageView&noscript=1"/>
+</noscript>
+<!-- ================================================= -->
+
 <style>
 body{
-  margin:0;
-  font-family: Arial, Helvetica, sans-serif;
-  background:#0b0b0f;
-  color:white;
-  text-align:center;
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#0b0b0f;
+color:white;
+text-align:center;
 }
-
-.container{
-  max-width:900px;
-  margin:auto;
-  padding:60px 20px;
-}
-
-h1{
-  font-size:48px;
-  margin-bottom:20px;
-}
-
-p{
-  font-size:20px;
-  color:#bfbfbf;
-}
-
+.container{max-width:900px;margin:auto;padding:60px 20px;}
+h1{font-size:48px;}
+p{font-size:20px;color:#bbb;}
 button{
-  background:#7c4dff;
-  border:none;
-  padding:18px 35px;
-  color:white;
-  font-size:18px;
-  border-radius:8px;
-  cursor:pointer;
-  margin-top:30px;
+background:#7b5cff;
+border:none;
+padding:18px 28px;
+border-radius:10px;
+font-size:18px;
+color:white;
+cursor:pointer;
+margin-top:30px;
 }
-
-.form-box{
-  margin-top:60px;
-  background:#111;
-  padding:40px;
-  border-radius:12px;
-}
-
-input, select{
-  width:100%;
-  padding:15px;
-  margin-top:15px;
-  border-radius:8px;
-  border:none;
-  font-size:16px;
-}
-.success{
-  display:none;
-  font-size:22px;
-  margin-top:30px;
-  color:#00ffae;
-}
+button:hover{opacity:0.9;}
 </style>
-</head>
 
+</head>
 <body>
 
 <div class="container">
-  <h1>A vistoria de saída não precisa começar do zero</h1>
-  <p>Envie o laudo de entrada e receba automaticamente o plano da vistoria de saída.</p>
+<h1>A vistoria de saída finalmente virou previsível</h1>
+<p>Envie o laudo de entrada e receba automaticamente o checklist completo da vistoria de saída.</p>
 
-  <div class="form-box">
-    <h2>Entre na lista de acesso antecipado</h2>
-
-    <form id="leadForm">
-      <input type="text" id="nome" placeholder="Seu nome" required>
-      <input type="email" id="email" placeholder="Seu melhor email" required>
-      <input type="text" id="empresa" placeholder="Nome da imobiliária" required>
-
-      <select id="imoveis" required>
-        <option value="">Quantidade de imóveis na carteira</option>
-        <option>Até 50</option>
-        <option>De 50 a 200</option>
-        <option>De 200 a 500</option>
-        <option>Mais de 500</option>
-      </select>
-
-      <button type="submit">Quero entrar na lista</button>
-    </form>
-
-    <div class="success" id="successMsg">
-      ✅ Obrigado! Você entrou na lista de acesso antecipado.
-    </div>
-
-  </div>
+<button onclick="abrirFormulario()">Quero acesso antecipado</button>
 </div>
 
 <script>
-document.getElementById("leadForm").addEventListener("submit", function(e){
-  e.preventDefault();
+function abrirFormulario() {
 
-  const nome = document.getElementById("nome").value;
-  const email = document.getElementById("email").value;
-  const empresa = document.getElementById("empresa").value;
-  const imoveis = document.getElementById("imoveis").value;
-
-  // Envio invisível para Google Forms
-  fetch("https://docs.google.com/forms/d/e/1FAIpQLSd4pKwGRXz_JwaDve3gfmmzApQw8J9jZctdi__nN_NgJ6UGZw/formResponse", {
-    method: "POST",
-    mode: "no-cors",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded"
-    },
-    body:
-      "entry.1611338675=" + encodeURIComponent(nome) +
-      "&entry.783241913=" + encodeURIComponent(email) +
-      "&entry.1729597457=" + encodeURIComponent(empresa) +
-      "&entry.1610615495=" + encodeURIComponent(imoveis)
+  // EVENTO GOOGLE ANALYTICS
+  gtag('event','generate_lead',{
+    'event_category':'CTA',
+    'event_label':'Abrir Formulário'
   });
 
-  // Evento GA4
-  gtag('event', 'generate_lead');
+  // EVENTO META PIXEL
+  fbq('track','Lead');
 
-  document.getElementById("leadForm").style.display="none";
-  document.getElementById("successMsg").style.display="block";
-});
+  // ABRIR FORMULÁRIO
+  window.open(
+    "https://docs.google.com/forms/d/e/1FAIpQLSd4pKwGRXz_JwaDve3gfmmzApQw8J9jZctdi__nN_NgJ6UGZw/viewform",
+    "_blank"
+  );
+}
 </script>
 
 </body>
