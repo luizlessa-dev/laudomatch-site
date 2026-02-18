@@ -1,93 +1,108 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LaudoMatch — Automação de Vistorias Imobiliárias</title>
+  <meta charset="UTF-8">
+  <title>LaudoMatch — Laudos de vistoria com IA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ================= GOOGLE ANALYTICS ================= -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DRR9ZFN2KY"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-DRR9ZFN2KY');
-</script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRR9ZFN2KY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DRR9ZFN2KY');
+  </script>
 
-<!-- ================= META PIXEL ================= -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
+  <!-- META PIXEL -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1616334372884673');
+  fbq('track', 'PageView');
+  </script>
+  <noscript>
+  <img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1616334372884673&ev=PageView&noscript=1"/>
+  </noscript>
 
-fbq('init', '1616334372884673');
-fbq('track', 'PageView');
-</script>
-
-<noscript>
-<img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1616334372884673&ev=PageView&noscript=1"/>
-</noscript>
-<!-- ================================================= -->
-
-<style>
-body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#0b0b0f;
-color:white;
-text-align:center;
-}
-.container{max-width:900px;margin:auto;padding:60px 20px;}
-h1{font-size:48px;}
-p{font-size:20px;color:#bbb;}
-button{
-background:#7b5cff;
-border:none;
-padding:18px 28px;
-border-radius:10px;
-font-size:18px;
-color:white;
-cursor:pointer;
-margin-top:30px;
-}
-button:hover{opacity:0.9;}
-</style>
-
+  <style>
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:#0b0b14;
+      color:white;
+      text-align:center;
+    }
+    .hero{
+      padding:80px 20px;
+      background: radial-gradient(circle at center, #6b46ff, #0b0b14);
+    }
+    h1{
+      font-size:48px;
+      margin-bottom:20px;
+    }
+    p{
+      font-size:20px;
+      opacity:0.8;
+    }
+    .cta{
+      margin-top:40px;
+      padding:18px 36px;
+      font-size:20px;
+      border-radius:12px;
+      border:none;
+      background: linear-gradient(90deg,#7c5cff,#a855f7);
+      color:white;
+      cursor:pointer;
+    }
+    .section{
+      padding:60px 20px;
+    }
+    .card{
+      max-width:600px;
+      margin:20px auto;
+      background:#141420;
+      padding:30px;
+      border-radius:16px;
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="container">
-<h1>A vistoria de saída finalmente virou previsível</h1>
-<p>Envie o laudo de entrada e receba automaticamente o checklist completo da vistoria de saída.</p>
+  <section class="hero">
+    <h1>Laudos de vistoria em minutos com IA</h1>
+    <p>Padronize seus laudos, reduza horas de trabalho e evite conflitos na entrega do imóvel.</p>
 
-<button onclick="abrirFormulario()">Quero acesso antecipado</button>
-</div>
+    <button class="cta" onclick="capturarLead()">Entrar na lista de espera</button>
+  </section>
 
-<script>
-function abrirFormulario() {
+  <section class="section">
+    <div class="card">
+      <h2>Reduza o tempo de vistoria</h2>
+      <p>Transforme fotos e observações em textos técnicos automaticamente.</p>
+    </div>
 
-  // EVENTO GOOGLE ANALYTICS
-  gtag('event','generate_lead',{
-    'event_category':'CTA',
-    'event_label':'Abrir Formulário'
-  });
+    <div class="card">
+      <h2>Padronização profissional</h2>
+      <p>Laudos com linguagem técnica pronta para uso jurídico.</p>
+    </div>
+  </section>
 
-  // EVENTO META PIXEL
-  fbq('track','Lead');
-
-  // ABRIR FORMULÁRIO
-  window.open(
-    "https://docs.google.com/forms/d/e/1FAIpQLSd4pKwGRXz_JwaDve3gfmmzApQw8J9jZctdi__nN_NgJ6UGZw/viewform",
-    "_blank"
-  );
-}
-</script>
+  <script>
+    function capturarLead(){
+      fbq('track','Lead');
+      gtag('event','generate_lead');
+      window.open("https://docs.google.com/forms/d/e/1FAIpQLSd4pKwGRXz_JwaDve3gfmmzApQw8J9jZctdi__nN_NgJ6UGZw/viewform", "_blank");
+    }
+  </script>
 
 </body>
 </html>
