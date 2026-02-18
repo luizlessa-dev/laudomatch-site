@@ -1,143 +1,142 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <title>LaudoMatch — Laudos de Vistoria com IA</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRR9ZFN2KY"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-DRR9ZFN2KY');
-  </script>
+<title>LaudoMatch — A vistoria não precisa começar do zero</title>
+<meta name="description" content="Envie o laudo de entrada e receba automaticamente o plano da vistoria de saída.">
 
-  <style>
-    body{
-      margin:0;
-      font-family:Arial, Helvetica, sans-serif;
-      background:#0b0b0f;
-      color:#fff;
-      line-height:1.6;
-    }
-    section{
-      max-width:1100px;
-      margin:auto;
-      padding:80px 20px;
-    }
-    h1,h2{
-      text-align:center;
-    }
-    .hero{
-      text-align:center;
-      padding:120px 20px;
-      background:radial-gradient(circle,#5f2eff33,#000);
-    }
-    .cta{
-      display:inline-block;
-      background:#7b5cff;
-      padding:18px 32px;
-      border-radius:8px;
-      text-decoration:none;
-      color:#fff;
-      font-weight:bold;
-      margin-top:30px;
-      font-size:18px;
-    }
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:30px;
-      margin-top:40px;
-    }
-    .card{
-      background:#15151d;
-      padding:25px;
-      border-radius:10px;
-    }
-    input{
-      width:100%;
-      padding:15px;
-      margin-top:10px;
-      border-radius:6px;
-      border:none;
-      font-size:16px;
-    }
-    button{
-      width:100%;
-      padding:16px;
-      margin-top:15px;
-      background:#7b5cff;
-      color:white;
-      border:none;
-      border-radius:6px;
-      font-size:18px;
-      cursor:pointer;
-    }
-  </style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DRR9ZFN2KY"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-DRR9ZFN2KY');
+</script>
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background:#0b0b0f;
+  color:white;
+  text-align:center;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:60px 20px;
+}
+
+h1{
+  font-size:48px;
+  margin-bottom:20px;
+}
+
+p{
+  font-size:20px;
+  color:#bfbfbf;
+}
+
+button{
+  background:#7c4dff;
+  border:none;
+  padding:18px 35px;
+  color:white;
+  font-size:18px;
+  border-radius:8px;
+  cursor:pointer;
+  margin-top:30px;
+}
+
+.form-box{
+  margin-top:60px;
+  background:#111;
+  padding:40px;
+  border-radius:12px;
+}
+
+input, select{
+  width:100%;
+  padding:15px;
+  margin-top:15px;
+  border-radius:8px;
+  border:none;
+  font-size:16px;
+}
+.success{
+  display:none;
+  font-size:22px;
+  margin-top:30px;
+  color:#00ffae;
+}
+</style>
 </head>
 
 <body>
 
-<section class="hero">
-  <h1>Laudos de vistoria em minutos com IA</h1>
-  <p>Padronize suas vistorias, reduza conflitos e economize horas de trabalho.</p>
-  <a class="cta" href="#form">Entrar na lista de espera</a>
-</section>
+<div class="container">
+  <h1>A vistoria de saída não precisa começar do zero</h1>
+  <p>Envie o laudo de entrada e receba automaticamente o plano da vistoria de saída.</p>
 
-<section>
-  <h2>A dor das imobiliárias</h2>
-  <div class="grid">
-    <div class="card">Laudos demorados e manuais</div>
-    <div class="card">Conflitos com inquilinos</div>
-    <div class="card">Retrabalho e refações</div>
-    <div class="card">Risco jurídico</div>
+  <div class="form-box">
+    <h2>Entre na lista de acesso antecipado</h2>
+
+    <form id="leadForm">
+      <input type="text" id="nome" placeholder="Seu nome" required>
+      <input type="email" id="email" placeholder="Seu melhor email" required>
+      <input type="text" id="empresa" placeholder="Nome da imobiliária" required>
+
+      <select id="imoveis" required>
+        <option value="">Quantidade de imóveis na carteira</option>
+        <option>Até 50</option>
+        <option>De 50 a 200</option>
+        <option>De 200 a 500</option>
+        <option>Mais de 500</option>
+      </select>
+
+      <button type="submit">Quero entrar na lista</button>
+    </form>
+
+    <div class="success" id="successMsg">
+      ✅ Obrigado! Você entrou na lista de acesso antecipado.
+    </div>
+
   </div>
-</section>
-
-<section>
-  <h2>Para quem é o LaudoMatch</h2>
-  <div class="grid">
-    <div class="card">Imobiliárias</div>
-    <div class="card">Vistoriadores</div>
-    <div class="card">Engenheiros</div>
-    <div class="card">Administradoras</div>
-  </div>
-</section>
-
-<section>
-  <h2>Como funciona</h2>
-  <div class="grid">
-    <div class="card">📸 Tire fotos do imóvel</div>
-    <div class="card">🤖 IA gera descrições técnicas</div>
-    <div class="card">📄 Gere o PDF automaticamente</div>
-  </div>
-</section>
-
-<section id="form">
-  <h2>Seja um dos primeiros a testar</h2>
-  <p style="text-align:center">Entre na lista de espera e receba acesso antecipado.</p>
-
-  <form onsubmit="enviarLead(event)">
-    <input type="text" placeholder="Nome" required>
-    <input type="email" placeholder="Email" required>
-    <button type="submit">Quero testar o LaudoMatch</button>
-  </form>
-</section>
+</div>
 
 <script>
-function enviarLead(e){
+document.getElementById("leadForm").addEventListener("submit", function(e){
   e.preventDefault();
 
-  gtag('event','generate_lead',{
-    'event_category':'form',
-    'event_label':'lista_espera'
+  const nome = document.getElementById("nome").value;
+  const email = document.getElementById("email").value;
+  const empresa = document.getElementById("empresa").value;
+  const imoveis = document.getElementById("imoveis").value;
+
+  // Envio invisível para Google Forms
+  fetch("https://docs.google.com/forms/d/e/1FAIpQLSd4pKwGRXz_JwaDve3gfmmzApQw8J9jZctdi__nN_NgJ6UGZw/formResponse", {
+    method: "POST",
+    mode: "no-cors",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    body:
+      "entry.1611338675=" + encodeURIComponent(nome) +
+      "&entry.783241913=" + encodeURIComponent(email) +
+      "&entry.1729597457=" + encodeURIComponent(empresa) +
+      "&entry.1610615495=" + encodeURIComponent(imoveis)
   });
 
-  alert("Obrigado! Em breve entraremos em contato.");
-}
+  // Evento GA4
+  gtag('event', 'generate_lead');
+
+  document.getElementById("leadForm").style.display="none";
+  document.getElementById("successMsg").style.display="block";
+});
 </script>
 
 </body>
