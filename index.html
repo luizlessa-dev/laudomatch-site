@@ -1,133 +1,182 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<title>LaudoMatch</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>LaudoMatch — Vistoria de saída com IA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-<style>
-body{
-font-family:Inter, sans-serif;
-margin:0;
-background:#0b0b0b;
-color:white;
-text-align:center;
-}
+  <style>
+    body{
+      margin:0;
+      font-family:Inter, Arial;
+      background:#000;
+      color:#fff;
+      line-height:1.6;
+    }
 
-.hero{
-padding:120px 20px;
-background: radial-gradient(circle at top, #1f1f1f, #000);
-}
+    .container{
+      max-width:1000px;
+      margin:auto;
+      padding:100px 20px;
+      text-align:center;
+    }
 
-h1{font-size:56px;max-width:900px;margin:auto}
-.subtitle{font-size:22px;opacity:.75;margin:20px auto 40px;max-width:700px}
+    .btn{
+      background:#7c3aed;
+      padding:18px 32px;
+      border-radius:12px;
+      text-decoration:none;
+      color:#fff;
+      font-weight:600;
+      display:inline-block;
+      margin-top:30px;
+    }
 
-.cta{
-background:#6c5cff;
-padding:18px 34px;
-border-radius:12px;
-display:inline-block;
-font-weight:600;
-text-decoration:none;
-color:white;
-font-size:20px;
-box-shadow:0 10px 30px rgba(108,92,255,.4);
-}
+    .muted{ color:#aaa; }
+    .section-dark{ background:#111; }
 
-.section{padding:100px 20px;background:#111}
-.cards{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;margin-top:50px}
-.card{background:#1c1c1c;padding:30px;border-radius:16px;width:260px}
-.card p{opacity:.7}
+    .grid{
+      display:flex;
+      flex-wrap:wrap;
+      gap:40px;
+      justify-content:center;
+      margin-top:60px;
+    }
 
-.final{padding:120px 20px;background:linear-gradient(180deg,#111,#000)}
-</style>
+    .card{
+      max-width:260px;
+    }
+
+    h1{ font-size:48px; line-height:1.2; }
+    h2{ font-size:36px; }
+    h3{ font-size:22px; }
+
+    footer{
+      text-align:center;
+      padding:60px 20px;
+      color:#666;
+      font-size:14px;
+    }
+  </style>
 </head>
 
 <body>
 
-<section class="hero">
-<h1>A vistoria de saída deixou de ser subjetiva</h1>
-<p class="subtitle">Envie o laudo de entrada e receba automaticamente o checklist completo da vistoria de saída — pronto para uso e juridicamente mais seguro.</p>
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSd4pKwGRXz_JwaDve3gfmmzApQw8J9jZctdi__nN_NgJ6UGZw/viewform" target="_blank" class="cta">Entrar na lista de espera</a>
+<!-- HERO -->
+<section class="container">
+  <h1>
+    Transforme o laudo de entrada no plano completo da vistoria de saída
+  </h1>
+
+  <p class="muted" style="font-size:22px;margin-top:30px;">
+    A IA do LaudoMatch analisa o laudo de entrada e gera automaticamente  
+    o checklist técnico da vistoria de saída.
+  </p>
+
+  <a href="https://forms.gle/" target="_blank" class="btn">
+    Entrar na lista de espera
+  </a>
+
+  <p style="margin-top:20px;color:#666;">
+    Em construção com imobiliárias brasileiras
+  </p>
 </section>
 
-<section class="section">
-<h2>O maior atrito da locação acontece na devolução das chaves</h2>
-<div class="cards">
-<div class="card"><h3>Discussões com inquilinos</h3><p>Conflitos sobre pintura, limpeza e danos todos os meses.</p></div>
-<div class="card"><h3>Horas perdidas</h3><p>Comparação manual de laudos consome tempo da equipe.</p></div>
-<div class="card"><h3>Retrabalho constante</h3><p>Vistorias refeitas e negociações intermináveis.</p></div>
-<div class="card"><h3>Risco jurídico</h3><p>Descontos de caução sem prova sólida viram disputa.</p></div>
-</div>
+
+<!-- PROBLEMA -->
+<section class="container section-dark">
+  <h2>A vistoria de saída é onde surgem os maiores conflitos da locação</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Retrabalho manual</h3>
+      <p class="muted">
+        Cada vistoria exige reler o laudo de entrada e montar um checklist manual.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Conflitos com inquilinos</h3>
+      <p class="muted">
+        Diferenças entre laudos geram discussões sobre danos e caução.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Risco jurídico</h3>
+      <p class="muted">
+        Sem documentação comparativa clara, cobranças podem ser contestadas.
+      </p>
+    </div>
+  </div>
+
+  <p style="margin-top:50px;color:#a78bfa;font-size:22px;">
+    A vistoria de saída não deveria começar do zero.
+  </p>
 </section>
 
-<section class="section">
-<h2>Por que imobiliárias estão buscando automação</h2>
-<div class="cards">
-<div class="card"><h3>⏱ Economize horas</h3></div>
-<div class="card"><h3>⚖️ Reduza conflitos</h3></div>
-<div class="card"><h3>📑 Padronize processos</h3></div>
-<div class="card"><h3>🛡 Mais segurança jurídica</h3></div>
-</div>
+
+<!-- COMO FUNCIONA -->
+<section class="container">
+  <h2>Como funciona</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>1. Envie o laudo</h3>
+      <p class="muted">Upload do laudo de entrada.</p>
+    </div>
+
+    <div class="card">
+      <h3>2. IA analisa</h3>
+      <p class="muted">Identificação automática de ambientes e materiais.</p>
+    </div>
+
+    <div class="card">
+      <h3>3. Checklist pronto</h3>
+      <p class="muted">Receba o plano completo da vistoria de saída.</p>
+    </div>
+  </div>
 </section>
 
-<section class="section">
-<section class="section">
-<h2>Para quem o LaudoMatch foi criado</h2>
-<div class="cards">
-<div class="card">
-<h3>Imobiliárias de locação</h3>
-<p>Que querem reduzir conflitos e escalar a operação.</p>
-</div>
 
-<div class="card">
-<h3>Empresas de vistoria</h3>
-<p>Que desejam padronizar processos e ganhar produtividade.</p>
-</div>
+<!-- PROVA SOCIAL -->
+<section class="container section-dark">
+  <h2>Feito para imobiliárias que querem escalar locação</h2>
 
-<div class="card">
-<h3>Administradoras de imóveis</h3>
-<p>Que precisam de mais segurança jurídica na devolução.</p>
-</div>
+  <div class="grid">
+    <div class="card">
+      <h3>Menos retrabalho</h3>
+      <p class="muted">Reduza horas de leitura e comparação de laudos.</p>
+    </div>
 
-<div class="card">
-<h3>Equipes de locação</h3>
-<p>Que perdem horas comparando laudos manualmente.</p>
-</div>
-</div>
-</section>
-<div class="cards">
-<div class="card"><h3>1️⃣ Envie o laudo de entrada</h3></div>
-<div class="card"><h3>2️⃣ A IA analisa o documento</h3></div>
-<div class="card"><h3>3️⃣ Receba o checklist da vistoria de saída</h3></div>
-</div>
+    <div class="card">
+      <h3>Mais padronização</h3>
+      <p class="muted">Checklist técnico consistente em todas as vistorias.</p>
+    </div>
+
+    <div class="card">
+      <h3>Mais segurança jurídica</h3>
+      <p class="muted">Base documental clara para negociação e caução.</p>
+    </div>
+  </div>
 </section>
 
-<section class="section">
-<section class="section">
-<h2>Por que estamos criando o LaudoMatch</h2>
-<p style="max-width:700px;margin:auto;opacity:.8">
-A vistoria de saída é hoje uma das maiores fontes de conflito na locação de imóveis.
-Imobiliárias perdem tempo, enfrentam retrabalho e assumem riscos jurídicos por falta de padronização na comparação de laudos.
 
-Estamos criando o LaudoMatch para transformar esse processo em algo previsível, rápido e mais seguro para imobiliárias, proprietários e inquilinos.
-</p>
-</section>
-<div class="cards">
-<div class="card"><h3>Não precisa trocar seu sistema</h3></div>
-<div class="card"><h3>Equipe aprende em minutos</h3></div>
-<div class="card"><h3>Seus dados continuam seus</h3></div>
-<div class="card"><h3>ROI rápido e mensurável</h3></div>
-</div>
+<!-- CTA FINAL -->
+<section class="container">
+  <h2>Seja uma das primeiras imobiliárias a testar</h2>
+
+  <a href="https://forms.gle/" target="_blank" class="btn">
+    Quero acesso antecipado
+  </a>
 </section>
 
-<section class="final">
-<h2>Seja uma das primeiras imobiliárias a testar</h2>
-<br>
-<a href="https://docs.google.com/forms/d/e/1FAIpQLSd4pKwGRXz_JwaDve3gfmmzApQw8J9jZctdi__nN_NgJ6UGZw/viewform" target="_blank" class="cta">Quero acesso antecipado</a>
-</section>
+
+<footer>
+  © LaudoMatch — Em construção
+</footer>
 
 </body>
 </html>
