@@ -1,67 +1,71 @@
 // ===============================
-// CONFIG
+// CONFIGURAÇÕES
 // ===============================
-const VERIFY_TOKEN = process.env.WHATSAPP_VERIFY_TOKEN;
-const WHATSAPP_TOKEN = process.env.WHATSAPP_TOKEN;
-const PHONE_NUMBER_ID = process.env.WHATSAPP_PHONE_NUMBER_ID;
+const VERIFY_TOKEN = process.env.WHATSAPP_VERIFY_TOKEN!
+const WHATSAPP_TOKEN = process.env.WHATSAPP_TOKEN!
+const PHONE_NUMBER_ID = process.env.PHONE_NUMBER_ID! // <- nome correto
 
 
 // ===============================
 // VERIFICAÇÃO DO WEBHOOK (META)
 // ===============================
-export default async function handler(req, res) {
+export default async function handler(req: any, res: any) {
 
   if (req.method === "GET") {
-    const mode = req.query["hub.mode"];
-    const token = req.query["hub.verify_token"];
-    const challenge = req.query["hub.challenge"];
+    const mode = req.query["hub.mode"]
+    const token = req.query["hub.verify_token"]
+    const challenge = req.query["hub.challenge"]
 
     if (mode === "subscribe" && token === VERIFY_TOKEN) {
-      console.log("WEBHOOK VERIFICADO");
-      return res.status(200).send(challenge);
+      console.log("Webhook verificado com sucesso")
+      return res.status(200).send(challenge)
     } else {
-      return res.status(403).send("Forbidden");
+      return res.status(403).send("Forbidden")
     }
   }
 
+
   // ===============================
-  // RECEBER MENSAGENS
+  // RECEBER MENSAGENS DO WHATSAPP
   // ===============================
   if (req.method === "POST") {
     try {
-      const body = req.body;
+      const body = req.body
+
+      console.log("Webhook recebido:", JSON.stringify(body))
 
       const message =
-        body.entry?.[0]?.changes?.[0]?.value?.messages?.[0];
+        body.entry?.[0]?.changes?.[0]?.value?.messages?.[0]
 
-      if (!message) return res.sendStatus(200);
+      if (!message) return res.sendStatus(200)
 
-      const from = message.from;
-      const text = message.text?.body?.toLowerCase() || "";
+      const from = message.from
+      const text = message.text?.body?.toLowerCase() || ""
 
-      console.log("Mensagem recebida:", text);
+      console.log("Mensagem recebida:", text)
 
-      const reply = getBotReply(text);
+      const reply = getBotReply(text)
 
-      await sendWhatsAppMessage(from, reply);
+      await sendWhatsAppMessage(from, reply)
 
-      return res.sendStatus(200);
+      return res.sendStatus(200)
+
     } catch (err) {
-      console.error(err);
-      return res.sendStatus(500);
+      console.error("Erro no webhook:", err)
+      return res.sendStatus(500)
     }
   }
 
-  return res.sendStatus(405);
+  return res.sendStatus(405)
 }
 
 
 // ===============================
 // MOTOR DO BOT
 // ===============================
-function getBotReply(text) {
+function getBotReply(text: string): string {
 
-  // PRIMEIRA MENSAGEM / MENU
+  // MENU INICIAL
   if (!text || text === "oi" || text === "olá" || text === "ola") {
     return `Olá! 👋
 
@@ -74,7 +78,7 @@ Como posso te ajudar?
 1️⃣ Conhecer a plataforma
 2️⃣ Ver exemplo de laudo
 3️⃣ Testar gratuitamente
-4️⃣ Falar com humano`;
+4️⃣ Falar com humano`
   }
 
   // OPÇÃO 1
@@ -91,7 +95,7 @@ Ideal para:
 👷 Engenheiros
 📐 Arquitetos
 
-Digite *3* para testar grátis 😉`;
+Digite *3* para testar grátis 😉`
   }
 
   // OPÇÃO 2
@@ -99,10 +103,10 @@ Digite *3* para testar grátis 😉`;
     return `Você pode ver um exemplo aqui:
 https://www.laudomatch.com
 
-Digite *3* para criar sua conta grátis 🙂`;
+Digite *3* para criar sua conta grátis 🙂`
   }
 
-  // OPÇÃO 3 (CONVERSÃO)
+  // OPÇÃO 3
   if (
     text.includes("3") ||
     text.includes("teste") ||
@@ -117,14 +121,14 @@ https://www.laudomatch.com
 Plano gratuito inclui:
 • 2 laudos/mês
 • PDF automático
-• IA integrada`;
+• IA integrada`
   }
 
   // OPÇÃO 4
   if (text.includes("4") || text.includes("humano")) {
     return `Perfeito 🙂
 
-O Luiz vai falar com você aqui em breve 👍`;
+O Luiz vai falar com você aqui em breve 👍`
   }
 
   // FAQ PREÇO
@@ -139,17 +143,17 @@ O Luiz vai falar com você aqui em breve 👍`;
 🚀 Pro — R$49/mês ilimitado
 
 Comece grátis:
-https://www.laudomatch.com`;
+https://www.laudomatch.com`
   }
 
   // FAQ CELULAR
   if (text.includes("celular") || text.includes("iphone") || text.includes("android")) {
-    return `Sim 😊 funciona direto no celular!`;
+    return `Sim 😊 funciona direto no celular!`
   }
 
   // FAQ PDF
   if (text.includes("pdf")) {
-    return `Os laudos são gerados em PDF profissional automaticamente 📄`;
+    return `Os laudos são gerados em PDF profissional automaticamente 📄`
   }
 
   // FALLBACK
@@ -158,18 +162,18 @@ https://www.laudomatch.com`;
 1️⃣ Conhecer a plataforma
 2️⃣ Ver exemplo
 3️⃣ Testar grátis
-4️⃣ Falar com humano`;
+4️⃣ Falar com humano`
 }
 
 
 // ===============================
-// ENVIAR MENSAGEM WHATSAPP
+// ENVIAR MENSAGEM VIA API META
 // ===============================
-async function sendWhatsAppMessage(to, message) {
+async function sendWhatsAppMessage(to: string, message: string) {
 
-  const url = `https://graph.facebook.com/v19.0/${PHONE_NUMBER_ID}/messages`;
+  const url = `https://graph.facebook.com/v24.0/${PHONE_NUMBER_ID}/messages`
 
-  await fetch(url, {
+  const response = await fetch(url, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${WHATSAPP_TOKEN}`,
@@ -180,5 +184,8 @@ async function sendWhatsAppMessage(to, message) {
       to: to,
       text: { body: message },
     }),
-  });
+  })
+
+  const data = await response.json()
+  console.log("Resposta da Meta:", data)
 }
