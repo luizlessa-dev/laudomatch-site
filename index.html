@@ -1,177 +1,130 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LaudoMatch — A vistoria de saída finalmente virou previsível</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LaudoMatch — Laudos de vistoria em minutos com IA</title>
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRR9ZFN2KY"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-DRR9ZFN2KY');
-  </script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DRR9ZFN2KY"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-DRR9ZFN2KY');
+</script>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#0b0b0f;
+color:white;
+text-align:center;
+}
 
-  <style>
-    * {margin:0;padding:0;box-sizing:border-box}
-    body{
-      font-family:Inter, sans-serif;
-      background:#0b0b0f;
-      color:white;
-      line-height:1.6;
-    }
+.hero{
+padding:80px 20px;
+background: radial-gradient(circle at center, #5b2cff 0%, #0b0b0f 70%);
+}
 
-    .container{
-      max-width:1100px;
-      margin:auto;
-      padding:60px 20px;
-      text-align:center;
-    }
+h1{
+font-size:42px;
+margin-bottom:20px;
+}
 
-    .hero{
-      background: radial-gradient(circle at center, #2b2bff20, #000);
-      padding:120px 20px;
-    }
+h2{
+font-weight:normal;
+opacity:0.8;
+max-width:600px;
+margin:auto;
+}
 
-    h1{
-      font-size:48px;
-      font-weight:700;
-      margin-bottom:20px;
-    }
+.cta{
+margin-top:40px;
+padding:18px 40px;
+background:linear-gradient(90deg,#7a5cff,#a855f7);
+border:none;
+border-radius:8px;
+color:white;
+font-size:20px;
+cursor:pointer;
+transition:0.3s;
+}
 
-    h2{
-      font-size:34px;
-      margin-bottom:40px;
-    }
+.cta:hover{
+transform:scale(1.05);
+}
 
-    p{
-      font-size:20px;
-      opacity:.8;
-      margin-bottom:40px;
-    }
+.section{
+padding:80px 20px;
+max-width:900px;
+margin:auto;
+}
 
-    .cta{
-      display:inline-block;
-      background:linear-gradient(90deg,#6C63FF,#7f5cff);
-      padding:18px 36px;
-      border-radius:10px;
-      text-decoration:none;
-      color:white;
-      font-weight:600;
-      font-size:18px;
-      transition:.3s;
-    }
+.card{
+background:#12121a;
+padding:30px;
+border-radius:12px;
+margin:20px;
+}
 
-    .cta:hover{
-      transform:scale(1.05);
-      box-shadow:0 0 20px #6C63FF;
-    }
-
-    .section{
-      padding:90px 20px;
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:25px;
-      margin-top:40px;
-    }
-
-    .card{
-      background:#15151d;
-      padding:30px;
-      border-radius:14px;
-    }
-
-    .footer{
-      opacity:.6;
-      font-size:14px;
-      padding:30px;
-      text-align:center;
-    }
-  </style>
+.footer{
+opacity:0.6;
+padding:40px;
+font-size:14px;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <h1>A vistoria de saída finalmente virou previsível</h1>
-      <p>Envie o laudo de entrada e receba automaticamente o checklist completo da vistoria de saída.</p>
+<div class="hero">
+<h1>Laudos de vistoria em minutos com IA</h1>
+<h2>Padronize seus laudos, reduza horas de trabalho e evite conflitos na entrega do imóvel.</h2>
 
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd4pKwGRXz_JwaDve3gfmmzApQw8J9jZctdi__nN_NgJ6UGZw/viewform"
-         class="cta"
-         target="_blank"
-         onclick="gtag('event','click_cta',{event_category:'engagement',event_label:'Hero'});">
-         Quero acesso antecipado
-      </a>
-    </div>
-  </section>
+<button class="cta" onclick="leadClick()">
+Entrar na lista de espera
+</button>
+</div>
 
-  <!-- PROBLEMA -->
-  <section class="section">
-    <div class="container">
-      <h2>O maior conflito da locação acontece na entrega das chaves</h2>
-      <p>Discussões sobre danos, retrabalho e insegurança jurídica fazem parte da rotina das imobiliárias.</p>
+<div class="section">
+<div class="card">
+<h3>Reduza o tempo de vistoria</h3>
+<p>Transforme fotos e observações em textos técnicos automaticamente.</p>
+</div>
 
-      <div class="cards">
-        <div class="card">Retrabalho com laudos manuais</div>
-        <div class="card">Discussões com inquilinos</div>
-        <div class="card">Processos sem padrão</div>
-        <div class="card">Risco jurídico na caução</div>
-      </div>
-    </div>
-  </section>
+<div class="card">
+<h3>Padronização profissional</h3>
+<p>Laudos com linguagem técnica pronta para uso jurídico.</p>
+</div>
 
-  <!-- BENEFÍCIOS -->
-  <section class="section">
-    <div class="container">
-      <h2>Por que imobiliárias precisam disso?</h2>
+<div class="card">
+<h3>Menos conflitos</h3>
+<p>Documentação clara e objetiva para imobiliária, proprietário e locatário.</p>
+</div>
+</div>
 
-      <div class="cards">
-        <div class="card">Economize horas comparando laudos automaticamente</div>
-        <div class="card">Reduza conflitos com documentação padronizada</div>
-        <div class="card">Padronize o processo de vistoria</div>
-      </div>
-    </div>
-  </section>
+<div class="footer">
+© 2026 LaudoMatch
+</div>
 
-  <!-- COMO FUNCIONA -->
-  <section class="section">
-    <div class="container">
-      <h2>Como funciona</h2>
+<!-- EVENTO DE CONVERSÃO -->
+<script>
+function leadClick() {
 
-      <div class="cards">
-        <div class="card">1️⃣ Envie o laudo de entrada</div>
-        <div class="card">2️⃣ A IA analisa o documento</div>
-        <div class="card">3️⃣ Receba o checklist completo</div>
-      </div>
-    </div>
-  </section>
+gtag('event','generate_lead',{
+'event_category':'engagement',
+'event_label':'botao_lista_espera'
+});
 
-  <!-- CTA FINAL -->
-  <section class="section">
-    <div class="container">
-      <h2>Seja uma das primeiras imobiliárias a testar</h2>
+window.open(
+"https://docs.google.com/forms/d/e/1FAIpQLSd4pKwGRXz_JwaDve3gfmmzApQw8J9jZctdi__nN_NgJ6UGZw/viewform",
+"_blank"
+);
 
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd4pKwGRXz_JwaDve3gfmmzApQw8J9jZctdi__nN_NgJ6UGZw/viewform"
-         class="cta"
-         target="_blank"
-         onclick="gtag('event','click_cta_footer',{event_category:'engagement',event_label:'Footer'});">
-         Quero acesso antecipado
-      </a>
-    </div>
-  </section>
-
-  <div class="footer">
-    © 2026 LaudoMatch
-  </div>
+}
+</script>
 
 </body>
 </html>
