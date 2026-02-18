@@ -1,10 +1,27 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 
-export default function handler(
-  req: VercelRequest,
-  res: VercelResponse
-) {
-  // 1️⃣ VERIFICAÇÃO DO WEBHOOK (META)
+const WHATSAPP_TOKEN = process.env.WHATSAPP_TOKEN
+const PHONE_NUMBER_ID = "1031772316684759"
+
+async function sendWhatsAppMessage(to: string, text: string) {
+  await fetch(`https://graph.facebook.com/v19.0/${PHONE_NUMBER_ID}/messages`, {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${WHATSAPP_TOKEN}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      messaging_product: "whatsapp",
+      to,
+      type: "text",
+      text: { body: text }
+    })
+  })
+}
+
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+
+  // Verificação da Meta
   if (req.method === 'GET') {
     const mode = req.query['hub.mode']
     const token = req.query['hub.verify_token']
@@ -17,13 +34,38 @@ export default function handler(
     return res.status(403).send('Forbidden')
   }
 
-  // 2️⃣ EVENTOS RECEBIDOS DO WHATSAPP
+  // Recebendo mensagens do WhatsApp
   if (req.method === 'POST') {
-    console.log('Evento WhatsApp recebido:')
-    console.log(JSON.stringify(req.body, null, 2))
+    const body = req.body
 
-    return res.status(200).send('EVENT_RECEIVED')
+    try {
+      const message = body.entry?.[0]?.changes?.[0]?.value?.messages?.[0]
+
+      if (message) {
+        const from = message.from
+        const userText = message.text?.body || ""
+
+        console.log("Mensagem recebida:", userText)
+
+        const reply = `👋 Olá! Sou o assistente do *LaudoMatch*.
+
+Geramos laudos de vistoria profissional automaticamente a partir de fotos 📸
+
+👉 Teste grátis agora:
+https://laudomatch.com
+
+Se quiser, responda *COMEÇAR* que eu te explico como funciona 😉`
+
+        await sendWhatsAppMessage(from, reply)
+      }
+
+      return res.status(200).send("EVENT_RECEIVED")
+
+    } catch (error) {
+      console.error(error)
+      return res.status(200).send("OK")
+    }
   }
 
-  return res.status(200).send('OK')
+  return res.status(200).send("OK")
 }
