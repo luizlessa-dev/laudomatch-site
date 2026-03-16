@@ -1,9 +1,11 @@
 // ===============================
-// CONFIGURAÇÕES
+// CONFIGURAÇÕES (lidas lazily para facilitar testes)
 // ===============================
-const VERIFY_TOKEN = process.env.WHATSAPP_VERIFY_TOKEN!
-const WHATSAPP_TOKEN = process.env.WHATSAPP_TOKEN!
-const PHONE_NUMBER_ID = process.env.PHONE_NUMBER_ID! // <- nome correto
+const getConfig = () => ({
+  VERIFY_TOKEN: process.env.WHATSAPP_VERIFY_TOKEN!,
+  WHATSAPP_TOKEN: process.env.WHATSAPP_TOKEN!,
+  PHONE_NUMBER_ID: process.env.PHONE_NUMBER_ID!,
+})
 
 
 // ===============================
@@ -16,6 +18,7 @@ export default async function handler(req: any, res: any) {
     const token = req.query["hub.verify_token"]
     const challenge = req.query["hub.challenge"]
 
+    const { VERIFY_TOKEN } = getConfig()
     if (mode === "subscribe" && token === VERIFY_TOKEN) {
       console.log("Webhook verificado com sucesso")
       return res.status(200).send(challenge)
@@ -63,7 +66,7 @@ export default async function handler(req: any, res: any) {
 // ===============================
 // MOTOR DO BOT
 // ===============================
-function getBotReply(text: string): string {
+export function getBotReply(text: string): string {
 
   // MENU INICIAL
   if (!text || text === "oi" || text === "olá" || text === "ola") {
@@ -169,8 +172,9 @@ https://www.laudomatch.com`
 // ===============================
 // ENVIAR MENSAGEM VIA API META
 // ===============================
-async function sendWhatsAppMessage(to: string, message: string) {
+export async function sendWhatsAppMessage(to: string, message: string) {
 
+  const { WHATSAPP_TOKEN, PHONE_NUMBER_ID } = getConfig()
   const url = `https://graph.facebook.com/v24.0/${PHONE_NUMBER_ID}/messages`
 
   const response = await fetch(url, {
